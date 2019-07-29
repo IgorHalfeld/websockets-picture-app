@@ -3,7 +3,7 @@ FROM golang:1.12
 RUN go get github.com/gorilla/websocket
 
 ENV PORT 3000
-ENV GO111MODULE=off
+ENV GO111MODULE=on
 
 ADD . /app
 WORKDIR /app
