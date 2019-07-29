@@ -9,5 +9,7 @@ COPY . /app
 
 RUN cd /app && go build *.go
 
+EXPOSE 80
+
 CMD ["/app/client"]
 
