@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/igorhalfeld/websocketsapi/helpers"
+	"github.com/igorhalfeld/websockets-api/helpers"
 	"log"
 	"net/http"
 	"os"
@@ -19,7 +19,15 @@ func main() {
 		helpers.ServeWs(hub, w, r)
 	})
 
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+
+	var port string
+	if os.Getenv("PORT") == "" {
+		port = "3000"
+	} else {
+		port = os.Getenv("PORT")
+	}
+
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}

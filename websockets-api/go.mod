@@ -1,4 +1,4 @@
-module github.com/igorhalfeld/websocketsapi
+module github.com/igorhalfeld/websockets-api
 
 go 1.12
 
