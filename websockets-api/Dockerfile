@@ -4,10 +4,9 @@ FROM gustavohenrique/golang:1.12-stretch
 ENV PORT=80
 ARG app_name
 
-COPY . /backend
+COPY . .
 
-RUN cd /backend/apps/$app_name \
- && go build *.go \
+RUN go build *.go \
  && mv client /usr/local/bin
 
 CMD ["/usr/local/bin/client"]
