@@ -21,10 +21,10 @@ func main() {
 
 
 	var port string
-	if os.Getenv("PORT") == "" {
+	if os.Getenv("WEBSITES_PORT") == "" {
 		port = "3000"
 	} else {
-		port = os.Getenv("PORT")
+		port = os.Getenv("WEBSITES_PORT")
 	}
 
 	err := http.ListenAndServe(":"+port, nil)
