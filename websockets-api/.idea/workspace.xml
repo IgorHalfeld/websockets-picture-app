@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c00acb8-d4f0-4e9a-80d7-8c43831925c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../websockets-front/client-receiver/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/../websockets-front/client-receiver/.env.production" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

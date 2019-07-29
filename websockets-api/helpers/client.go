@@ -23,6 +23,7 @@ var (
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
+	Subprotocols:      []string{"binary"},
 	CheckOrigin: func(_ *http.Request) bool {
 		return true // cors bypass
 	},
