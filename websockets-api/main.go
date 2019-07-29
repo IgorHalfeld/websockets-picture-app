@@ -1,39 +1,26 @@
 package main
 
 import (
-	"flag"
 	"fmt"
+	"github.com/igorhalfeld/websocketsapi/helpers"
 	"log"
 	"net/http"
 	"os"
 )
 
-var addr = flag.String("addr", ":"+os.Getenv("PORT"), "http service address")
-
-func serveHome(w http.ResponseWriter, r *http.Request) {
-	log.Println(r.URL)
-	if r.URL.Path != "/" {
-		http.Error(w, "Not found", http.StatusNotFound)
-		return
-	}
-	if r.Method != "GET" {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-	http.ServeFile(w, r, "home.html")
-}
-
 func main() {
-	flag.Parse()
-	hub := NewHub()
-	go hub.run()
-	http.HandleFunc("/", serveHome)
-	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
-		ServeWs(hub, w, r)
+	hub := helpers.NewHub()
+	go hub.Run()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		_, _ = fmt.Fprint(w, "It's works!")
 	})
-	err := http.ListenAndServe(*addr, nil)
+
+	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
+		helpers.ServeWs(hub, w, r)
+	})
+
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
-	fmt.Println("Server running...")
 }

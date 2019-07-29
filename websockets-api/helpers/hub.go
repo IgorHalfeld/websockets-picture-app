@@ -1,4 +1,4 @@
-package main
+package helpers
 
 // Hub maintains the set of active clients and broadcasts messages to the clients.
 type Hub struct {
@@ -18,7 +18,7 @@ func NewHub() *Hub {
 	}
 }
 
-func (h *Hub) run() {
+func (h *Hub) Run() {
 	for {
 		select {
 		case client := <-h.register:
