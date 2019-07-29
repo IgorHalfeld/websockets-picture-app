@@ -1,8 +1,6 @@
-# For deployment purpose only
-FROM gustavohenrique/golang:1.12-stretch
+FROM golang:1.12
 
 ENV PORT=80
-ARG app_name
 
 COPY . .
 
